@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <!-- Initial bot message -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+      <srai>INITIAL BOT MESSAGE</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>INITIAL BOT MESSAGE</pattern>
+    <template>
+      Would you like to explore computing career options?
+      <button>
+        <text>Yes</text>
+        <postback>AnswerYES</postback>
+      </button>
+      <button>
+        <text>No</text>
+        <postback>AnswerNO</postback>
+      </button>
+    </template>
+  </category>
+
+  <!-- Start category -->
+  <category>
+    <pattern>AnswerYES</pattern>
+    <template>
+      Great! I'm going to ask you a few questions to get a better idea about your interests and strengths.
+      <delay>2</delay>
+      First, what's your name?
+    </template>
+  </category>
+
+  <category>
+    <pattern>AnswerNO</pattern>
+    <template>
+      No problem! If you change your mind, just type "START" to begin.
+    </template>
+  </category>
+
+  <!-- Capture & store user's name -->
+  <category>
+    <pattern>MY NAME IS *</pattern>
+    <template>
+      <think>
+        <set name="name"><star/></set>
+        <set name="nameset">true</set>
+      </think>
+      Nice to meet you, <formal><get name="name"/></formal>! Now, let’s find out more about your interests.
+      <delay>2</delay>
+      Do you enjoy problem-solving and creating new solutions?<br/><br/> (Yes/No)
+    </template>
+  </category>
+
+  <!-- Response to problem solving question -->
+  <category>
+    <pattern>Yes</pattern>
+      <template>
+        Great! Do you prefer working with large sets of data, designing software applications, or creating user-friendly websites?<br/><br/> (Data, Software, or Web)
+      </template>
+  </category>
+
+  <category>
+    <pattern>No</pattern>
+      <template>
+        That's okay! Do you like working with networks and ensuring systems are secure and connected?<br/><br/> (Networking or Security)
+      </template>
+  </category>
+
+  <!-- User selects data, software, or web -->
+  <category>
+    <pattern>DATA</pattern>
+    <template>
+      Data is the backbone of modern computing. Would you be more interested in analyzing data or building models to predict outcomes?<br/><br/> (Data Analyst or Data Scientist)
+    </template>
+  </category>
+
+  <category>
+    <pattern>SOFTWARE</pattern>
+    <template>
+      Software development is a creative and challenging field. Would you prefer designing and coding applications, or analyzing and improving systems?<br/><br/> (Software Developer or System Analyst)
+    </template>
+  </category>
+
+  <category>
+    <pattern>WEB</pattern>
+    <template>
+      Web development is an exciting field that blends creativity with technical skills. Would you prefer building websites from the ground up or focusing on the design and user experience?<br/><br/> (Web Developer or Frontend Developer)
+    </template>
+  </category>
+
+  <!-- User selects networking or security -->
+  <category>
+    <pattern>NETWORKING</pattern>
+    <template>
+      Networking is critical for any organization. Would you prefer managing networks or designing network solutions?<br/><br/> (Network Administrator or Network Engineer)
+    </template>
+  </category>
+
+  <category>
+    <pattern>SECURITY</pattern>
+    <template>
+      Security is essential in today’s digital world. Would you be interested in protecting systems from threats or responding to cyber incidents?<br/><br/> (Information Security Analyst or Cybersecurity Specialist)
+    </template>
+  </category>
+
+  <!-- Final recommendations -->
+  <category>
+    <pattern>SOFTWARE DEVELOPER</pattern>
+    <template>
+      A Software Developer is responsible for designing, coding, and testing software applications. They work closely with stakeholders to understand requirements and develop solutions.
+      <think><set name="final_recommendation">software</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SYSTEM ANALYST</pattern>
+    <template>
+      A System Analyst evaluates and improves computer systems, ensuring they meet the needs of businesses and users.
+      <think><set name="final_recommendation">software</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>DATA ANALYST</pattern>
+    <template>
+      A Data Analyst gathers, processes, and analyzes data to help organizations make informed decisions.
+      <think><set name="final_recommendation">data</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>DATA SCIENTIST</pattern>
+    <template>
+      A Data Scientist uses advanced analytics and machine learning to uncover insights from data. They develop predictive models and contribute to strategic decision-making.
+      <think><set name="final_recommendation">data</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>NETWORK ADMINISTRATOR</pattern>
+    <template>
+      A Network Administrator is responsible for maintaining, configuring, and monitoring an organization's network infrastructure, ensuring security and reliability.
+      <think><set name="final_recommendation">networking</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>NETWORK ENGINEER</pattern>
+    <template>
+      A Network Engineer designs and implements network solutions that meet organizational needs, focusing on performance, security, and scalability.
+      <think><set name="final_recommendation">networking</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>INFORMATION SECURITY ANALYST</pattern>
+    <template>
+      An Information Security Analyst protects an organization's systems and data from cyber threats. They implement security measures and monitor for breaches.
+      <think><set name="final_recommendation">security</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>CYBERSECURITY SPECIALIST</pattern>
+    <template>
+      A Cybersecurity Specialist focuses on protecting networks and systems from cyber attacks, using tools and techniques to prevent and respond to security incidents.
+      <think><set name="final_recommendation">security</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>WEB DEVELOPER</pattern>
+    <template>
+      A Web Developer builds and maintains websites, ensuring functionality and user experience. They use programming languages like HTML, CSS, and JavaScript.
+      <think><set name="final_recommendation">web</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>FRONTEND DEVELOPER</pattern>
+    <template>
+      A Frontend Developer specializes in the visual aspects of websites, working with HTML, CSS, and JavaScript to create user-friendly interfaces.
+      <think><set name="final_recommendation">web</set></think>
+      <srai>FINAL RECOMMENDATION</srai>
+    </template>
+  </category>
+
+  <!-- Final recommendation -->
+  <category>
+    <pattern>FINAL RECOMMENDATION</pattern>
+    <template>
+      <br/><br/>Based on your responses, I recommend pursuing a career in the field of <get name="final_recommendation"/>. <br/><br/>This field aligns with your interests and strengths.<br/>
+      <think><delay>2</delay></think>
+      To learn more or to book an appointment with a career advisor, please visit the WGU Portal.<br/><br/>
+      <button>
+          <text>WGU Portal</text>
+          <url>https://www.wgu.edu/student-portal.html</url>
+      </button>
+      <think><delay>2</delay></think>
+      Thank you for chatting with me! If you’d like to explore other options, feel free to type "START" to begin again. 
+      <br/><br/>Goodbye and good luck with your future career!<br/>
+    </template>
+  </category>
+
+</aiml>
